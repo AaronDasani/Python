@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home</title>
+</head>
+<style>
+    #wrapper{
+        margin: 0px auto;
+        width: 500px;
+        text-align: center;
+    }
+    h1{
+        
+        margin-top: 100px;
+        background-color: black;
+        color: rgb(243, 243, 243);
+        
+    }
+    p{
+       
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+    }
+    button{
+        width:150px; 
+        height: 30px;
+        background-color: rgb(255, 183, 149);
+        border-radius: 10px;
+        font-size: 15px;
+        font-family:'Times New Roman', Times, serif;
+    }
+    button+button{
+        background-color:rgb(137, 223, 137);
+    }
+</style>
+<body>
+    <div id="wrapper">
+        <h1>Counter</h1>
+       
+        <p>{{session["count"]}} times</p>
+        <form action="/processing" method="post">
+            <button type="submit" name="button1" value="1">Add +2 Visit</button>
+            <button type="submit" name="button2" value="2">Reset</button>
+        </form>
+        
+    </div>
+</body>
+</html>
