@@ -1,0 +1,281 @@
+
+<title>Home</title>
+{%extends "layout.html" %}
+{%block content%}
+
+    <main role="main">
+        <section class="jumbotron text-center maincontainer">
+            <div class="container innerjumnbotron">
+                <h1 class="jumbotron-heading">Fruits Store</h1>
+                <p class="lead text-muted">All fruits are fresh and organic for our students. Because we know our students are very  busy we offer a fruit bundle that will deliver to you every week.</p>
+                <p>
+                <a href="#special" class="btn btn-warning my-2">Fruits Bundle</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- The form Start -->
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <form action='/procceedToCheckout' method='post'>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/banana.jpg" alt="banana">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                            
+                                        </div>
+                                        <select name='banana'>
+                                            <option value='0'>0</option>
+                                            <option value='3'>1</option>
+                                            <option value='6'>2</option>
+                                            <option value='9'>3</option>
+                                            <option value='12'>4</option>
+                                        </select>
+                                        <small class="text-muted">$3</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/Apple.jpg" alt="apple">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='apple'>
+                                            <option value='0'>0</option>
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                            <option value='4'>4</option>
+                                        </select>
+                                        <small class="text-muted">$1 each</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/grapes.jpg" alt="grapes">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='grapes'>
+                                            <option value='0'>0</option>
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                            <option value='4'>4</option>
+                                        </select>
+                                        <small class="text-muted">$1</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/mango.jpg" alt="mango">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='mango'>
+                                            <option value='0'>0</option>
+                                            <option value='2'>1</option>
+                                            <option value='4'>2</option>
+                                            <option value='6'>3</option>
+                                            <option value='8'>4</option>
+                                        </select>
+                                        <small class="text-muted">$2</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/watermelon.jpg" alt="watermelon">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='watermelon'>
+                                            <option value='0'>0</option>
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                            <option value='4'>4</option>
+                                        </select>
+                                        <small class="text-muted">$1 each</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/litchi.jpg" alt="litchi">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='litchi'>
+                                            <option value='0'>0</option>
+                                            <option value='3'>1</option>
+                                            <option value='6'>2</option>
+                                            <option value='9'>3</option>
+                                            <option value='12'>4</option>
+                                        </select>
+                                        <small class="text-muted">$3 per pound</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/peach.jpg" alt="peach">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='peach'>
+                                            <option value='0'>0</option>
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                            <option value='4'>4</option>
+                                        </select>
+                                        <small class="text-muted">$1 each</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/raspberry.jpg" alt="raspberry">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='raspberry'>
+                                            <option value='0'>0</option>
+                                            <option value='2'>1</option>
+                                            <option value='4'>2</option>
+                                            <option value='6'>3</option>
+                                            <option value='8'>4</option>
+                                        </select>
+                                        <small class="text-muted">$2 per pound</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 box">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="/static/img_static/blueberry.jpg" alt="blueberry">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-secondary addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='blueberry'>
+                                            <option value='0'>0</option>
+                                            <option value='2'>1</option>
+                                            <option value='4'>2</option>
+                                            <option value='6'>3</option>
+                                            <option value='8'>4</option>
+                                        </select>
+                                        <small class="text-muted">$2 per pound</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm bg-dark mb-3">
+                                <img id="special" class="card-img-top" src="/static/img_static/fruitbasket.jpeg" alt="fruitbasket">
+                                <div class="card-body bg-dark mb-3">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button " class="btn btn-sm btn-outline-warning addcart">Add to Cart</button> 
+                                        </div>
+                                        <select name='specialBundle'>
+                                            <option value='0'>0</option>
+                                            <option value='50'>1</option>
+                                            <option value='100'>2</option>
+                                            <option value='150'>3</option>
+                                            <option value='200'>4</option>
+                                        </select>
+                                        <small class="text-warning">$50 per basket</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+                </form>   
+
+            </div>
+
+        </div>
+
+    </main>
+{%endblock content%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+<!--         
+</body>
+</html> -->

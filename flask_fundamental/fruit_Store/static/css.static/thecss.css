@@ -1,0 +1,16 @@
+.maincontainer{
+    background-image: url("/static/img_static/fruit_background2.jpeg"); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(243, 243, 243);
+    position: relative;
+    background-attachment:fixed;
+    padding-left: 10px;
+}
+.innerjumnbotron{
+    width: 540px;
+    margin-left: 0px;
+    
+
+}
+

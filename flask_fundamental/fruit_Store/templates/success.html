@@ -1,0 +1,145 @@
+
+<title>success</title>
+
+{%extends "layout.html" %}
+
+
+{%block content%}
+
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h1 class="display-3">Thank You- {{session["firstname"]}}</h1>
+                    <p>Your order was successful</p>
+                    <p>Your fruits will be deliver to you tomorrow.</p>
+                    <p>If you would like to see more variety of fruits in the Fruits Store, please give us a call.</p>
+                    <a class="btn btn-warning btn-lg" href="/" role="button"> Back to Store &raquo;</a></p>
+                </div>
+        
+                <div class="col-md-4 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted">Purchased Items</span>
+                            <span class="badge badge-secondary badge-pill">{{session["array"]|length}}</span>
+                        </h4>
+
+                        <ul class="list-group mb-3">
+                            {%for key,value in session["array"].items():%}
+                                
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 class="my-0">{{key}}</h6>
+                                        
+                                    </div>
+                                    <span class="text-muted">${{value}}</span>
+
+                                </li>
+                                
+                            {%endfor%}
+                            <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong>${{session["sum"]}}</strong>
+                            </li>
+                            
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</main>
+<div class="container">
+    <h2>Favorite Fruits</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/banana.jpg" alt="banana">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$3</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/Apple.jpg" alt="apple">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button " class="btn btn-sm btn-outline-secondary ">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$1 each</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/grapes.jpg" alt="grapes">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button " class="btn btn-sm btn-outline-secondary ">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$1</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/mango.jpg" alt="mango">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button " class="btn btn-sm btn-outline-secondary ">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$2</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/watermelon.jpg" alt="watermelon">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button " class="btn btn-sm btn-outline-secondary ">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$1 each</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm bg-dark">
+                <img class="card-img-top" src="/static/img_static/litchi.jpg" alt="litchi">
+                <div class="card-body bg-dark">
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button " class="btn btn-sm btn-outline-secondary ">Add to Cart</button> 
+                        </div>
+                        <small class="text-success">$3 per pound</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+{%endblock content%}
