@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style_sheet.css') }}">
+</head>
+<style>
+   
+</style>
+
+<body>
+    <div id="wrapper">
+        <h1>Welcome to the Great Number Game!</h1>
+        <p> I am thinking of a number between 1 and 100</p>
+        <p>Take a guess</p>
+
+        {%if session["answerNum"]|int==0%}
+            <div class="box" style="background-color: red">
+                <p>Too low</p>         
+            </div>
+            
+        {%elif session["answerNum"]|int==1%} 
+            <div class="box" style="background-color: red">
+                <p>Too high</p>
+            </div>
+
+        {%elif session["answerNum"]|int==2%}
+            <div class="box" style="background-color: rgb(18, 165, 18)">
+                <p>{{session["random"]}} was the number!</p>
+                <button type="submit" name="playagain" form="processing1"> Play Again!</button>
+            </div>
+
+        {%else%}
+            <p></p>
+        {%endif%}
+
+
+        <form action="/processing" method="post" id="processing1">
+            {% if session["answerNum"]|int!=2%}
+                <input type="text" name="answer">
+                <button type="submit" name="submit" value="Submit">Submit</button>
+            {%else%}
+                <p>Well Played</p>
+            {%endif%}
+        </form>
+    </div>
+</body>
+</html>
