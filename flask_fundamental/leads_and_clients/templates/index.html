@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <title>Dashboard</title>
+
+   <style>
+   #chartContainer{
+       margin-top: 100px;
+       width: 600px !important;
+       
+   }
+   .table{
+       width:800px;
+       margin-top: 20px;
+       
+   }
+   .container{
+       margin-left: 30px;
+       margin-right: 50px;
+   }
+   </style>
+   <script>
+
+        window.onload = function () {
+        
+            var options = {
+                animationEnabled: true,
+                title: {
+                    text: "Customers and Leads"
+                },
+                data: [{
+                    type: "doughnut",
+                    innerRadius: "40%",
+                    showInLegend: true,
+                    legendText: "{label}",
+                    indexLabel: "{label}: #percent%",
+                    
+                    dataPoints: [
+                        { label: "kate smit", y: 4 },
+                        { label: "Joe Smith", y: 3 },
+                        { label: "Ryan Owen", y: 7 },
+                        { label: "Masaki Fujimoto", y: 7 }
+                        
+                    ]
+                }]
+            };
+            $("#chartContainer").CanvasJSChart(options);
+            
+           
+            CustomerArray=options.data[0].dataPoints;
+            
+            arrays='{{leads_data}}';
+            console.log(typeof(arrays));
+            console.log(arrays);
+            
+            for (let i = 0; i < arrays; i++) {
+                
+                CustomerArray.push(arrays[i])
+                
+            }
+
+            // CustomerArray=options.data[0].dataPoints;
+            // CustomerArray.push({'label':'blake thomas','y':6})
+
+            // console.log(CustomerArray);
+            
+            
+            
+
+
+        }
+
+        
+
+        </script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Report Dashboard</a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>          
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+
+        <form class="form-inline my-2 my-lg-0" >
+            <div class="mt-4 mb-4 col-md-9 offset-md-9">
+                <input class="form-control mr-sm-2 " type="text" placeholder="dd/mm/yyyy" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>  
+        </form>
+
+        <div>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Number of Leads</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for index in leads_data%}
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{index["name"]}}</td>
+                            <td>{{index["lead_amount"]}}</td>
+                        </tr>
+                    {%endfor%}
+
+
+
+                    
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
+
+
+
+
+    
+
+
+
+
+
+
+
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
