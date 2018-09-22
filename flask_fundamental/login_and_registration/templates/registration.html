@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Registration</title>
+    <style>
+    .container{
+        width: 800px;
+    }
+    
+    
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/static/codingdojo.jpg" alt="" width="100" height="100">
+            <h2>Registration form</h2>
+            <p class="lead">This form looks awesome and the validation work too.</p>
+        </div>
+
+
+        <div class=" order-md-1 formss">
+            <h4 class="mb-3">Your Information</h4>
+            <form class="needs-validation" action="/process" method="post">
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First name</label>
+                        {%if session["firstname"]%}
+                            <input type="text" class="form-control " id="firstName" name="firstname" value={{session['firstname']}}>
+
+                        {%else%}
+                            <input type="text" class="form-control " id="firstName" name="firstname" value="" placeholder="Enter first name">
+                        {%endif%}
+                        {% with errors = get_flashed_messages(category_filter=["firstname"]) %}
+                            {% if errors %}
+                                {%- for msg in errors %}
+                                    <small class="text-danger ml-2">{{ msg }}</small>
+                                {% endfor -%}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name</label>
+                        {%if session["lastname"]%}
+                            <input type="text" class="form-control" id="lastName" name="lastname" value={{session['lastname']}}>
+
+                        {%else%}
+                            <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Enter last name">
+                        {%endif%}
+                   
+                        {% with errors = get_flashed_messages(category_filter=["lastname"]) %}
+                            {% if errors %}
+                                {%- for msg in errors %}
+                                    <small class="text-danger ml-2">{{ msg }}</small>
+                                {% endfor -%}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+
+                    {%if session["email"]%}
+                        <input type="text" class="form-control" name="email" id="email" value="{{session['email']}}" placeholder="you@example.com">
+
+                    {%else%}
+                        <input type="text" class="form-control" name="email" id="email" placeholder="you@example.com">
+                    {%endif%}
+
+                    {% with errors = get_flashed_messages(category_filter=["email"]) %}
+                            {% if errors %}
+                                {%- for msg in errors %}
+                                    <small class="text-danger ml-2">{{ msg }}</small>
+                                {% endfor -%}
+                            {% endif %}
+                        {% endwith %}
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                    {% with errors = get_flashed_messages(category_filter=["password"]) %}
+                            {% if errors %}
+                                {%- for msg in errors %}
+                                    <small class="text-danger ml-2">{{ msg }}</small>
+                                {% endfor -%}
+                            {% endif %}
+                        {% endwith %}
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmpassword" id="confirmPassword" placeholder="confirm password">
+                    {% with errors = get_flashed_messages(category_filter=["confirmpassword"]) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <small class="text-danger ml-2">{{ msg }}</small>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+
+                <!-- Country-->
+    
+                <div class="col-md-5 mb-3 pl-0">
+                    <label for="country">Country</label>
+                    <select class="custom-select d-block w-100" id="country" name="country">
+                        {%if session["country"]%}
+                            <option>{{session['country']}}</option>
+    
+                        {%else%}
+                            <option value="">Choose...</option>
+                        {%endif%}
+                        {%for index in Countries_data%}
+                            <option>{{index['name']}}</option>
+                        {%endfor%}
+                    </select>
+                    {% with errors = get_flashed_messages(category_filter=["country"]) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <small class="text-danger ml-2">{{ msg }}</small>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                    
+                <hr class="mb-4">
+
+                <!-- favorite coding language >>> Radio input <<<< -->
+                <h4 class="mb-3">Favorite coding language</h4>
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="Python" name="language" value="Python" checked type="radio" class="custom-control-input"  >
+                        <label class="custom-control-label" for="Python">Python</label>
+                        
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="JavaScript" name="language" value="JavaScript" type="radio" class="custom-control-input" >
+                        <label class="custom-control-label" for="JavaScript">JavaScript</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="Ruby" name="language" value="Ruby" type="radio" class="custom-control-input" >
+                        <label class="custom-control-label" for="Ruby">Ruby</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="C++" name="language" value="C++" type="radio" class="custom-control-input" >
+                        <label class="custom-control-label" for="C++">C++</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="PHP" name="language" value="PHP" type="radio" class="custom-control-input" >
+                        <label class="custom-control-label" for="PHP">PHP</label>
+                    </div>
+                    {% with errors = get_flashed_messages(category_filter=["language"]) %}
+                        {% if errors %}
+                            {%- for msg in errors %}
+                                <small class="text-danger ml-2">{{ msg }}</small>
+                            {% endfor -%}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Register</button>
+
+            </form>
+        </div>
+            <!-- FOOTER -->
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2017-2018 MAAD</p>
+            <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+      
+      
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
