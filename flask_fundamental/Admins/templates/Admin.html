@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Admin Dashboard</title>
+    <style>
+    
+    .postSection, .messageSection{
+        display: inline-block;
+        vertical-align: top;
+    }
+    li>div, .deleteform{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .box{
+        height: 100px;
+        width: 300px;
+    }
+    .deleteform input{
+       height: 30px;
+       padding-top: 1px;
+    }
+    .messageSection{
+        width: 670px;
+    }
+    </style>
+</head>
+<body class="bg-light">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Admin Dasboard</a>
+
+            <div class="col-9 text-center ml-4">
+                <a class="blog-header-logo text-white" href="#">Welcome {{ session['user_info']}}!!</a>
+            </div>
+            <div>
+                <a class="text-white" href="/logout">
+                   Log Out
+                </a>
+                
+            </div>
+        </nav>
+   
+    <div class="container">
+
+        <table class="table mt-5 table-hover">
+            <thead class="thead-dark ">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for index in all_user%}
+                
+                    {%if index['user_level']==1%}
+                    
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{index['firstname']}} {{index['lastname']}}</td>
+                            <td>{{index['email']}}</td>
+                            <td class="text-success">Admin</td>
+                            <td>
+                                <form action="/adminProcess/{{index['user_id']}}" method="post">
+                                    <button type="submit" name='button' value='remove' class="btn btn-danger">Remove</button>
+                                    <button type="submit" name='button' value='removeAccess' class="btn btn-danger">Remove Admin Access</button>
+                                </form>
+                            </td>
+                        
+                        </tr>
+                    {%else%}
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{index['firstname']}} {{index['lastname']}}</td>
+                            <td>{{index['email']}}</td>
+                            <td>Normal User</td>
+                            <td>
+                                <form action="/adminProcess/{{index['user_id']}}" method="post">
+                                    <button type="submit" name='button' value='remove' class="btn btn-danger">Remove</button>
+                                    <button type="submit" name='button' value='makeAdmin' class="btn btn-success">Make Admin</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {%endif%}
+                
+                
+                
+                {%endfor%}
+                
+                
+               
+
+            </tbody>
+            </table>
+            
+        </table>
+
+
+
+
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
